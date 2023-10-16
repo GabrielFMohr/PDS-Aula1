@@ -5,7 +5,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import model.CalcularRetangulo;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -85,6 +89,12 @@ public class Exercicio3 extends JFrame {
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CalcularRetangulo c= new CalcularRetangulo();
+				float base= Float.valueOf(textBase.getText());
+				float altura= Float.valueOf(textAltura.getText());
+				float perimetro= c.CalcularPerimetro(base, altura);
+				float area= c.CalcularArea(base, altura);
+				JOptionPane.showMessageDialog(null, "Perimetro:"+perimetro+"\nÁrea:"+area);
 			}
 		});
 		btnCalcular.setBounds(218, 148, 89, 23);
