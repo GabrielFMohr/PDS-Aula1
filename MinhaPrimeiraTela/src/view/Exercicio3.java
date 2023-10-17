@@ -44,7 +44,7 @@ public class Exercicio3 extends JFrame {
 	 */
 	public Exercicio3() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 343, 236);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -74,7 +74,7 @@ public class Exercicio3 extends JFrame {
 				textAltura.setText("");
 			}
 		});
-		btnLimpar.setBounds(41, 148, 89, 23);
+		btnLimpar.setBounds(41, 126, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JButton btnFechar = new JButton("Fechar");
@@ -83,7 +83,7 @@ public class Exercicio3 extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnFechar.setBounds(129, 193, 89, 23);
+		btnFechar.setBounds(126, 160, 89, 23);
 		contentPane.add(btnFechar);
 		
 		JButton btnCalcular = new JButton("Calcular");
@@ -97,7 +97,7 @@ public class Exercicio3 extends JFrame {
 				JOptionPane.showMessageDialog(null, "Perimetro:"+perimetro+"\nÁrea:"+area);
 			}
 		});
-		btnCalcular.setBounds(218, 148, 89, 23);
+		btnCalcular.setBounds(212, 126, 89, 23);
 		contentPane.add(btnCalcular);
 	}
 

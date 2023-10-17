@@ -40,7 +40,7 @@ public class Exercicio2 extends JFrame {
 	 */
 	public Exercicio2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 243);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -48,12 +48,12 @@ public class Exercicio2 extends JFrame {
 		contentPane.setLayout(null);
 		
 		textNome = new JTextField();
-		textNome.setBounds(162, 23, 86, 20);
+		textNome.setBounds(150, 23, 86, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 		
-		JLabel lblInserirNome = new JLabel("Insere Nome:");
-		lblInserirNome.setBounds(72, 26, 100, 14);
+		JLabel lblInserirNome = new JLabel("Insira Nome:");
+		lblInserirNome.setBounds(60, 26, 80, 14);
 		contentPane.add(lblInserirNome);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -63,7 +63,7 @@ public class Exercicio2 extends JFrame {
 				textSobrenome.setText("");
 			}
 		});
-		btnLimpar.setBounds(72, 182, 89, 23);
+		btnLimpar.setBounds(72, 136, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JButton btnNomeCompleto = new JButton("Mostrar Nome Completo");
@@ -74,15 +74,15 @@ public class Exercicio2 extends JFrame {
 				JOptionPane.showMessageDialog(null, "Nome completo: "+ (nome+" "+sobrenome));
 			}
 		});
-		btnNomeCompleto.setBounds(247, 182, 177, 23);
+		btnNomeCompleto.setBounds(235, 136, 177, 23);
 		contentPane.add(btnNomeCompleto);
 		
-		JLabel lblSobrenome = new JLabel("Insere sobrenome:");
-		lblSobrenome.setBounds(42, 91, 126, 14);
+		JLabel lblSobrenome = new JLabel("Insira sobrenome:");
+		lblSobrenome.setBounds(30, 91, 110, 14);
 		contentPane.add(lblSobrenome);
 		
 		textSobrenome = new JTextField();
-		textSobrenome.setBounds(162, 88, 86, 20);
+		textSobrenome.setBounds(150, 88, 86, 20);
 		contentPane.add(textSobrenome);
 		textSobrenome.setColumns(10);
 		
@@ -92,7 +92,7 @@ public class Exercicio2 extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnFechar.setBounds(162, 227, 89, 23);
+		btnFechar.setBounds(150, 170, 89, 23);
 		contentPane.add(btnFechar);
 	}
 

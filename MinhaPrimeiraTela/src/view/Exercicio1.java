@@ -50,14 +50,14 @@ public class Exercicio1 extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblColocaFarenheit = new JLabel("Coloca Farenheit:");
+		JLabel lblColocaFarenheit = new JLabel("Insira Farenheit:");
 		lblColocaFarenheit.setBounds(83, 47, 101, 14);
 		contentPane.add(lblColocaFarenheit);
 		
 		textFarenheit = new JTextField();
 		textFarenheit.setForeground(Color.WHITE);
 		textFarenheit.setColumns(10);
-		textFarenheit.setBackground(new Color(0, 255, 64));
+		textFarenheit.setBackground(new Color(255, 255, 255));
 		textFarenheit.setBounds(182, 44, 86, 20);
 		contentPane.add(textFarenheit);
 		

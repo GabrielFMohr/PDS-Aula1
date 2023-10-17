@@ -44,7 +44,7 @@ public class Exercicio4 extends JFrame {
 	 */
 	public Exercicio4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 255);
+		setBounds(100, 100, 450, 227);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -52,12 +52,12 @@ public class Exercicio4 extends JFrame {
 		contentPane.setLayout(null);
 		
 		textPeso = new JTextField();
-		textPeso.setBounds(181, 57, 86, 20);
+		textPeso.setBounds(191, 27, 86, 20);
 		contentPane.add(textPeso);
 		textPeso.setColumns(10);
 		
 		textPreco = new JTextField();
-		textPreco.setBounds(181, 101, 86, 20);
+		textPreco.setBounds(191, 65, 86, 20);
 		contentPane.add(textPreco);
 		textPreco.setColumns(10);
 		
@@ -72,15 +72,15 @@ public class Exercicio4 extends JFrame {
 				
 			}
 		});
-		btnCalcular.setBounds(178, 149, 89, 23);
+		btnCalcular.setBounds(181, 108, 89, 23);
 		contentPane.add(btnCalcular);
 		
 		JLabel lblPeso = new JLabel("Insira o peso do prato montado:");
-		lblPeso.setBounds(10, 60, 158, 14);
+		lblPeso.setBounds(10, 30, 193, 14);
 		contentPane.add(lblPeso);
 		
 		JLabel lblValor = new JLabel("Insira o valor do kilo:");
-		lblValor.setBounds(62, 104, 100, 14);
+		lblValor.setBounds(66, 68, 120, 14);
 		contentPane.add(lblValor);
 		
 		JButton btnLimpar = new JButton("Limpar");
@@ -90,7 +90,7 @@ public class Exercicio4 extends JFrame {
 				textPeso.setText(null);
 			}
 		});
-		btnLimpar.setBounds(130, 183, 89, 23);
+		btnLimpar.setBounds(131, 142, 89, 23);
 		contentPane.add(btnLimpar);
 		
 		JButton btnFechar = new JButton("Fechar");
@@ -99,7 +99,7 @@ public class Exercicio4 extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnFechar.setBounds(229, 183, 89, 23);
+		btnFechar.setBounds(230, 142, 89, 23);
 		contentPane.add(btnFechar);
 	}
 }
