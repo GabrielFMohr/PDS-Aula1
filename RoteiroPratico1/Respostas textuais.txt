@@ -1,0 +1,11 @@
+1-Ao redimencionar, caso diminuísse a escala da interface os componentes que estavam nas bordas somem e, ao aumentar a escala, todos os componentes permaneceram na mesma posição
+
+2-Ao redimencionar a interface, seus componentes se "ajustam" ao novo tamanho da interface
+
+3-Com este ajuste mesmo redimencionando a interface os espaços de textos não mudam de tamanho
+
+4- Feito
+
+5-Adcionada
+
+6-Feito
