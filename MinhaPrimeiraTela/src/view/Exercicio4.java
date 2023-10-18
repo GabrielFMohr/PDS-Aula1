@@ -53,17 +53,17 @@ public class Exercicio4 extends JFrame {
 		contentPane.setLayout(null);
 		
 		textPL = new JTextField();
-		textPL.setBounds(205, 48, 86, 20);
+		textPL.setBounds(215, 48, 86, 20);
 		contentPane.add(textPL);
 		textPL.setColumns(10);
 		
 		textPF = new JTextField();
-		textPF.setBounds(205, 89, 86, 20);
+		textPF.setBounds(215, 89, 86, 20);
 		contentPane.add(textPF);
 		textPF.setColumns(10);
 		
 		JLabel lblPL = new JLabel("Insira o preço do litro:");
-		lblPL.setBounds(75, 51, 123, 14);
+		lblPL.setBounds(90, 51, 123, 14);
 		contentPane.add(lblPL);
 		
 		JLabel lblPF = new JLabel("Insira o valor inserido pelo cliente:");
