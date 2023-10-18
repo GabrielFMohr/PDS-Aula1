@@ -55,7 +55,7 @@ public class Exercicio1 extends JFrame {
 		contentPane.add(lblColocaFarenheit);
 		
 		textFarenheit = new JTextField();
-		textFarenheit.setForeground(Color.WHITE);
+		textFarenheit.setForeground(new Color(0, 0, 0));
 		textFarenheit.setColumns(10);
 		textFarenheit.setBackground(new Color(255, 255, 255));
 		textFarenheit.setBounds(182, 44, 86, 20);
@@ -90,7 +90,7 @@ public class Exercicio1 extends JFrame {
 				JOptionPane.showMessageDialog(null, "A temperatura inserida em Farenheits é igual à "+tempC+" em Celcius");
 			}
 		});
-		btnConverter.setBounds(307, 94, 89, 23);
+		btnConverter.setBounds(307, 94, 101, 23);
 		contentPane.add(btnConverter);
 	}
 
