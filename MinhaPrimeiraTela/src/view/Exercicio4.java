@@ -6,13 +6,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import model.PrecoMarmita;
+import model.CalculoLitros;
 
 import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -20,8 +19,10 @@ public class Exercicio4 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textPeso;
-	private JTextField textPreco;
+	private JTextField textPL;
+	private JTextField textPF;
+	private JButton btnLimpar;
+	private JButton btnCL;
 
 	/**
 	 * Launch the application.
@@ -44,54 +45,30 @@ public class Exercicio4 extends JFrame {
 	 */
 	public Exercicio4() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 227);
+		setBounds(100, 100, 450, 248);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		textPeso = new JTextField();
-		textPeso.setBounds(191, 27, 86, 20);
-		contentPane.add(textPeso);
-		textPeso.setColumns(10);
+		textPL = new JTextField();
+		textPL.setBounds(205, 48, 86, 20);
+		contentPane.add(textPL);
+		textPL.setColumns(10);
 		
-		textPreco = new JTextField();
-		textPreco.setBounds(191, 65, 86, 20);
-		contentPane.add(textPreco);
-		textPreco.setColumns(10);
+		textPF = new JTextField();
+		textPF.setBounds(205, 89, 86, 20);
+		contentPane.add(textPF);
+		textPF.setColumns(10);
 		
-		JButton btnCalcular = new JButton("Calcular");
-		btnCalcular.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				float peso= Float.valueOf(textPeso.getText());
-				float preco= Float.valueOf(textPreco.getText());
-				PrecoMarmita c= new PrecoMarmita();
-				float precoFinal= c.Calculo(preco, peso);
-				JOptionPane.showMessageDialog(null,"O preço final é: R$"+precoFinal);
-				
-			}
-		});
-		btnCalcular.setBounds(181, 108, 89, 23);
-		contentPane.add(btnCalcular);
+		JLabel lblPL = new JLabel("Insira o preço do litro:");
+		lblPL.setBounds(75, 51, 123, 14);
+		contentPane.add(lblPL);
 		
-		JLabel lblPeso = new JLabel("Insira o peso do prato montado:");
-		lblPeso.setBounds(10, 30, 193, 14);
-		contentPane.add(lblPeso);
-		
-		JLabel lblValor = new JLabel("Insira o valor do kilo:");
-		lblValor.setBounds(66, 68, 120, 14);
-		contentPane.add(lblValor);
-		
-		JButton btnLimpar = new JButton("Limpar");
-		btnLimpar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				textPreco.setText(null);
-				textPeso.setText(null);
-			}
-		});
-		btnLimpar.setBounds(131, 142, 89, 23);
-		contentPane.add(btnLimpar);
+		JLabel lblPF = new JLabel("Insira o valor inserido pelo cliente:");
+		lblPF.setBounds(20, 92, 219, 14);
+		contentPane.add(lblPF);
 		
 		JButton btnFechar = new JButton("Fechar");
 		btnFechar.addActionListener(new ActionListener() {
@@ -99,7 +76,31 @@ public class Exercicio4 extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnFechar.setBounds(230, 142, 89, 23);
+		btnFechar.setBounds(75, 174, 89, 23);
 		contentPane.add(btnFechar);
+		
+		btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textPF.setText(null);
+				textPL.setText(null);
+			}
+		});
+		btnLimpar.setBounds(236, 174, 89, 23);
+		contentPane.add(btnLimpar);
+		
+		btnCL = new JButton("Calcular Litros");
+		btnCL.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double PL= Double.valueOf(textPL.getText());
+				double PF= Double.valueOf(textPF.getText());
+				CalculoLitros c= new CalculoLitros();
+				double LT= c.Calcular(PL, PF);
+				JOptionPane.showMessageDialog(null, "O valor inserido corresponde à "+ LT+" litros");
+				
+			}
+		});
+		btnCL.setBounds(148, 139, 123, 23);
+		contentPane.add(btnCL);
 	}
 }
