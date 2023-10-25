@@ -95,20 +95,25 @@ public class Exercicio1 extends JFrame {
 		rdbtnPerimetro.setBounds(161, 126, 109, 23);
 		contentPane.add(rdbtnPerimetro);
 		
+		JLabel lblResult = new JLabel("");
+		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblResult.setBounds(32, 160, 67, 14);
+		contentPane.add(lblResult);
+		
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textBase.setText(null);
 				textAltura.setText(null);
+				rdbtnArea.setSelected(false);
+				rdbtnPerimetro.setSelected(false);
+				lblResult.setText(null);
 			}
 		});
 		btnLimpar.setBounds(10, 185, 89, 23);
 		contentPane.add(btnLimpar);
 		
-		JLabel lblResult = new JLabel("");
-		lblResult.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblResult.setBounds(32, 160, 67, 14);
-		contentPane.add(lblResult);
+		
 		
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
