@@ -80,6 +80,7 @@ public class CalculadoraInvestimentosGrid extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2);
+		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		textMensal = new JTextField();
 		panel_2.add(textMensal);
