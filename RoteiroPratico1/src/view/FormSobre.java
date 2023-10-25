@@ -38,7 +38,7 @@ public class FormSobre extends JFrame {
 	public FormSobre() {
 		setTitle("Sobre o CalcInvest");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 337, 219);
+		setBounds(100, 100, 344, 220);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

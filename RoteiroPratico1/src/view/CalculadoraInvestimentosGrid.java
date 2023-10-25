@@ -51,8 +51,9 @@ public class CalculadoraInvestimentosGrid extends JFrame {
 	 * Create the frame.
 	 */
 	public CalculadoraInvestimentosGrid() {
+		setTitle("CalcInvestGrid");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 308, 161);
+		setBounds(100, 100, 347, 202);
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setToolTipText("Ajuda");
