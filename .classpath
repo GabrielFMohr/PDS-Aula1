@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="MinhaPrimeiraTela/src"/>
+	<classpathentry kind="src" path="PraticaJRadioButton/src"/>
+	<classpathentry kind="src" path="RoteiroPratico1/src"/>
+	<classpathentry kind="lib" path="RoteiroPratico1/miglayout15-swing.jar"/>
+	<classpathentry kind="output" path="MinhaPrimeiraTela/bin"/>
+</classpath>
