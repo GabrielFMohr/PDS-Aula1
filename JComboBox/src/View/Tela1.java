@@ -34,6 +34,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class Tela1 extends JFrame {
 
@@ -79,10 +80,10 @@ public class Tela1 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(4, 1, 0, 0));
+		contentPane.setLayout(new MigLayout("", "[636px]", "[125px][130px][120px][25]"));
 		
 		JPanel panel_7 = new JPanel();
-		contentPane.add(panel_7);
+		contentPane.add(panel_7, "cell 0 0,grow");
 		panel_7.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
@@ -166,7 +167,7 @@ public class Tela1 extends JFrame {
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBorder(new TitledBorder(null, "Oleo Motor", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		contentPane.add(panel_8);
+		contentPane.add(panel_8, "cell 0 1,grow");
 		panel_8.setLayout(new GridLayout(0, 4, 0, 0));
 		
 		JPanel panel_9 = new JPanel();
@@ -217,7 +218,7 @@ public class Tela1 extends JFrame {
 		panel_8.add(lblTotalOleo);
 		
 		JPanel panel_10 = new JPanel();
-		contentPane.add(panel_10);
+		contentPane.add(panel_10, "cell 0 2,grow");
 		panel_10.setLayout(new GridLayout(0, 2, 0, 0));
 		
 		JPanel panel_11 = new JPanel();
@@ -230,6 +231,7 @@ public class Tela1 extends JFrame {
 		panel_11.add(lblNewLabel_10);
 		
 		JComboBox comboBoxCombustivel = new JComboBox();
+		comboBoxCombustivel.setModel(new DefaultComboBoxModel(new String[] {"regr", "gertg", "grteg"}));
 		panel_11.add(comboBoxCombustivel);
 		
 		JLabel lblNewLabel_12 = new JLabel("Quantidade Litros");
@@ -303,7 +305,7 @@ public class Tela1 extends JFrame {
 		textField.setColumns(10);
 		
 		JPanel panel_18 = new JPanel();
-		contentPane.add(panel_18);
+		contentPane.add(panel_18, "cell 0 3,grow");
 		panel_18.setLayout(new MigLayout("", "[318px,grow][318px][318px]", "[45px,grow,top]"));
 		
 		JButton btnNewButton = new JButton("New button");
