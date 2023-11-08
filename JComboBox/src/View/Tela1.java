@@ -58,7 +58,7 @@ public class Tela1 extends JFrame {
 	private JTextField textQuantiLitros;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField textDias;
-	private JTextField textField;
+	private JTextField textTotal;
 
 	/**
 	 * Launch the application.
@@ -246,13 +246,8 @@ public class Tela1 extends JFrame {
 			Calculos c=new Calculos();
 			public void focusLost(FocusEvent e) {
 				c.q500ml=Float.valueOf(text500mlquanti.getText());
-				lblValorP500mlOleo.setText(c.c500ml());
-				float x=Float.valueOf(c.c500ml());
-				float y=Float.valueOf(lbl500mlTotalOleo.getText());
-				float z=x+y;
-				String z1= String.valueOf(z);
-				
-				lbl500mlTotalOleo.setText(z1);
+				lblValorP500mlOleo.setText(c.c500ml());		
+				lbl500mlTotalOleo.setText(c.totalOleo());
 			}
 		});
 		panel_8.add(text500mlquanti);
@@ -277,6 +272,7 @@ public class Tela1 extends JFrame {
 			public void focusLost(FocusEvent e) {
 				c.q1L=Float.valueOf(text1LQuanti.getText());
 				lblValor1L.setText(c.c1L());
+				lbl500mlTotalOleo.setText(c.totalOleo());
 			}
 		});
 		panel_8.add(text1LQuanti);
@@ -307,6 +303,12 @@ public class Tela1 extends JFrame {
 		panel_11.add(lblNewLabel_12);
 		
 		textQuantiLitros = new JTextField();
+		textQuantiLitros.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+			}
+		});
 		panel_11.add(textQuantiLitros);
 		textQuantiLitros.setColumns(10);
 		
@@ -368,9 +370,9 @@ public class Tela1 extends JFrame {
 		JLabel lblNewLabel_16 = new JLabel("Total a pagar:");
 		panel_13.add(lblNewLabel_16);
 		
-		textField = new JTextField();
-		panel_13.add(textField);
-		textField.setColumns(10);
+		textTotal = new JTextField();
+		panel_13.add(textTotal);
+		textTotal.setColumns(10);
 		
 		JPanel panel_18 = new JPanel();
 		contentPane.add(panel_18, "cell 0 3,grow");
@@ -393,6 +395,26 @@ public class Tela1 extends JFrame {
 		panel_18.add(btnCalcular, "cell 0 0,alignx center");
 		
 		JButton btnNovoCalculo = new JButton("Novo Cálculo");
+		btnNovoCalculo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textDieselPreco.setText(null);
+				textComumPreco.setText(null);
+				textAditivPreco.setText(null);
+				textEtanolPreco.setText(null);
+				text500mlPreco.setText(null);
+				text1LPreco.setText(null);
+				text500mlquanti.setText(null);
+				text1LQuanti.setText(null);
+				textQuantiLitros.setText(null);
+				textDias.setText(null);
+				textTotal.setText(null);
+				lblTotalComb.setText("-");
+				lblValor1L.setText("-");
+				lblValorP500mlOleo.setText("-");
+				lbl500mlTotalOleo.setText("-");
+				
+			}
+		});
 		panel_18.add(btnNovoCalculo, "cell 1 0,alignx center");
 		
 		JButton btnFechar = new JButton("Fechar");
