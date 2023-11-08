@@ -246,11 +246,12 @@ public class Tela1 extends JFrame {
 			Calculos c=new Calculos();
 			public void focusLost(FocusEvent e) {
 				c.q500ml=Float.valueOf(text500mlquanti.getText());
+				lblValorP500mlOleo.setText(c.c500ml());
 				float x=Float.valueOf(c.c500ml());
 				float y=Float.valueOf(lbl500mlTotalOleo.getText());
 				float z=x+y;
 				String z1= String.valueOf(z);
-				lblValorP500mlOleo.setText(c.c500ml());
+				
 				lbl500mlTotalOleo.setText(z1);
 			}
 		});
