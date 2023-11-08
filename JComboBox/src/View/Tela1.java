@@ -22,6 +22,9 @@ import javax.swing.SpringLayout;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+
+import model.Calculos;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -35,6 +38,10 @@ import javax.swing.GroupLayout.Alignment;
 import com.jgoodies.forms.layout.FormSpecs;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 public class Tela1 extends JFrame {
 
@@ -73,9 +80,10 @@ public class Tela1 extends JFrame {
 	 * Create the frame.
 	 */
 	public Tela1() {
+		Calculos c=new Calculos();
 		setTitle("Posto de Combustível");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 662, 487);
+		setBounds(100, 100, 695, 487);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -101,6 +109,12 @@ public class Tela1 extends JFrame {
 		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.X_AXIS));
 		
 		textDieselPreco = new JTextField();
+		textDieselPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.vDiesel=Float.valueOf(textDieselPreco.getText());
+			}
+		});
 		panel_3.add(textDieselPreco);
 		textDieselPreco.setColumns(10);
 		
@@ -113,6 +127,12 @@ public class Tela1 extends JFrame {
 		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
 		
 		textComumPreco = new JTextField();
+		textComumPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.vComum=Float.valueOf(textComumPreco.getText());
+			}
+		});
 		panel_4.add(textComumPreco);
 		textComumPreco.setColumns(10);
 		
@@ -125,6 +145,12 @@ public class Tela1 extends JFrame {
 		panel_5.setLayout(new BoxLayout(panel_5, BoxLayout.X_AXIS));
 		
 		textAditivPreco = new JTextField();
+		textAditivPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.vAditiv=Float.valueOf(textAditivPreco.getText());
+			}
+		});
 		panel_5.add(textAditivPreco);
 		textAditivPreco.setColumns(10);
 		
@@ -137,6 +163,12 @@ public class Tela1 extends JFrame {
 		panel_6.setLayout(new BoxLayout(panel_6, BoxLayout.X_AXIS));
 		
 		textEtanolPreco = new JTextField();
+		textEtanolPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.vEtanool=Float.valueOf(textEtanolPreco.getText());
+			}
+		});
 		panel_6.add(textEtanolPreco);
 		textEtanolPreco.setColumns(10);
 		
@@ -150,6 +182,13 @@ public class Tela1 extends JFrame {
 		panel.add(lblNewLabel_4);
 		
 		text500mlPreco = new JTextField();
+		text500mlPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.v500ml=Float.valueOf(text500mlPreco.getText());
+				
+			}
+		});
 		text500mlPreco.setText("");
 		panel.add(text500mlPreco);
 		text500mlPreco.setColumns(10);
@@ -159,6 +198,12 @@ public class Tela1 extends JFrame {
 		panel.add(lblNewLabel_5);
 		
 		text1LPreco = new JTextField();
+		text1LPreco.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.v1L=Float.valueOf(text1LPreco.getText());
+			}
+		});
 		panel.add(text1LPreco);
 		text1LPreco.setColumns(10);
 		
@@ -189,33 +234,55 @@ public class Tela1 extends JFrame {
 		lblNewLabel_9.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_8.add(lblNewLabel_9);
 		
-		text500mlquanti = new JTextField();
-		panel_8.add(text500mlquanti);
-		text500mlquanti.setColumns(10);
-		
 		JLabel lblValorP500mlOleo = new JLabel("-");
 		lblValorP500mlOleo.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblValorP500mlOleo);
 		
 		JLabel lbl500mlTotalOleo = new JLabel("-");
 		lbl500mlTotalOleo.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		text500mlquanti = new JTextField();
+		text500mlquanti.addFocusListener(new FocusAdapter() {
+			
+			Calculos c=new Calculos();
+			public void focusLost(FocusEvent e) {
+				c.q500ml=Float.valueOf(text500mlquanti.getText());
+				float x=Float.valueOf(c.c500ml());
+				float y=Float.valueOf(lbl500mlTotalOleo.getText());
+				float z=x+y;
+				String z1= String.valueOf(z);
+				lblValorP500mlOleo.setText(c.c500ml());
+				lbl500mlTotalOleo.setText(z1);
+			}
+		});
+		panel_8.add(text500mlquanti);
+		text500mlquanti.setColumns(10);
+		
+		panel_8.add(lblValorP500mlOleo);
+		
+		
+		
+		
 		panel_8.add(lbl500mlTotalOleo);
 		
 		JLabel lblNewLabel_11 = new JLabel("Frasco de 1L");
 		lblNewLabel_11.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_8.add(lblNewLabel_11);
 		
+		JLabel lblValor1L = new JLabel("-");
+		lblValor1L.setHorizontalAlignment(SwingConstants.CENTER);
 		text1LQuanti = new JTextField();
+		text1LQuanti.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				c.q1L=Float.valueOf(text1LQuanti.getText());
+				lblValor1L.setText(c.c1L());
+			}
+		});
 		panel_8.add(text1LQuanti);
 		text1LQuanti.setColumns(10);
 		
-		JLabel lblValor1L = new JLabel("-");
-		lblValor1L.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblValor1L);
 		
-		JLabel lblTotalOleo = new JLabel("-");
-		lblTotalOleo.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_8.add(lblTotalOleo);
+		panel_8.add(lblValor1L);
 		
 		JPanel panel_10 = new JPanel();
 		contentPane.add(panel_10, "cell 0 2,grow");
@@ -231,7 +298,7 @@ public class Tela1 extends JFrame {
 		panel_11.add(lblNewLabel_10);
 		
 		JComboBox comboBoxCombustivel = new JComboBox();
-		comboBoxCombustivel.setModel(new DefaultComboBoxModel(new String[] {"regr", "gertg", "grteg"}));
+		comboBoxCombustivel.setModel(new DefaultComboBoxModel(new String[] {"Óleo Díesel", "Gasolina Comum", "Gasolina Aditivada", "Etanol"}));
 		panel_11.add(comboBoxCombustivel);
 		
 		JLabel lblNewLabel_12 = new JLabel("Quantidade Litros");
@@ -246,9 +313,9 @@ public class Tela1 extends JFrame {
 		lblNewLabel_13.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_11.add(lblNewLabel_13);
 		
-		JLabel lblNewLabel_14 = new JLabel("-");
-		lblNewLabel_14.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_11.add(lblNewLabel_14);
+		JLabel lblTotalComb = new JLabel("-");
+		lblTotalComb.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_11.add(lblTotalComb);
 		
 		JPanel panel_12 = new JPanel();
 		panel_12.setBorder(new TitledBorder(null, "Formas de Pagamento", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -263,9 +330,9 @@ public class Tela1 extends JFrame {
 		panel_14.add(panel_15);
 		panel_15.setLayout(new GridLayout(2, 1, 0, 0));
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("À vista");
-		buttonGroup.add(rdbtnNewRadioButton);
-		panel_15.add(rdbtnNewRadioButton);
+		JRadioButton rdbtnVista = new JRadioButton("À vista");
+		buttonGroup.add(rdbtnVista);
+		panel_15.add(rdbtnVista);
 		
 		JRadioButton rdbtnPrazo = new JRadioButton("À prazo");
 		buttonGroup.add(rdbtnPrazo);
@@ -308,14 +375,32 @@ public class Tela1 extends JFrame {
 		contentPane.add(panel_18, "cell 0 3,grow");
 		panel_18.setLayout(new MigLayout("", "[318px,grow][318px][318px]", "[45px,grow,top]"));
 		
-		JButton btnNewButton = new JButton("New button");
-		panel_18.add(btnNewButton, "cell 0 0,alignx center");
+		JButton btnCalcular = new JButton("Calcular");
+		btnCalcular.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				float vDiesel=Float.valueOf(textDieselPreco.getText());
+				float vComum=Float.valueOf(textComumPreco.getText());
+				float vAditiv=Float.valueOf(textAditivPreco.getText());
+				float vEtanol=Float.valueOf(textEtanolPreco.getText());
+				
+				
+				int posicao=comboBoxCombustivel.getSelectedIndex();
+				float qLitros= Float.valueOf(textQuantiLitros.getText());
+			
+			}
+		});
+		panel_18.add(btnCalcular, "cell 0 0,alignx center");
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		panel_18.add(btnNewButton_1, "cell 1 0,alignx center");
+		JButton btnNovoCalculo = new JButton("Novo Cálculo");
+		panel_18.add(btnNovoCalculo, "cell 1 0,alignx center");
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		panel_18.add(btnNewButton_2, "cell 2 0,alignx center");
+		JButton btnFechar = new JButton("Fechar");
+		btnFechar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
+		panel_18.add(btnFechar, "cell 2 0,alignx center");
 	}
 
 }
