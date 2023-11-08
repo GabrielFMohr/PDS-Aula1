@@ -42,6 +42,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import model.Combobox;
 
 public class Tela1 extends JFrame {
 
@@ -58,7 +59,6 @@ public class Tela1 extends JFrame {
 	private JTextField textQuantiLitros;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField textDias;
-	private JTextField textTotal;
 
 	/**
 	 * Launch the application.
@@ -243,8 +243,9 @@ public class Tela1 extends JFrame {
 		text500mlquanti = new JTextField();
 		text500mlquanti.addFocusListener(new FocusAdapter() {
 			
-			Calculos c=new Calculos();
+			
 			public void focusLost(FocusEvent e) {
+				
 				c.q500ml=Float.valueOf(text500mlquanti.getText());
 				lblValorP500mlOleo.setText(c.c500ml());		
 				lbl500mlTotalOleo.setText(c.totalOleo());
@@ -295,18 +296,38 @@ public class Tela1 extends JFrame {
 		panel_11.add(lblNewLabel_10);
 		
 		JComboBox comboBoxCombustivel = new JComboBox();
-		comboBoxCombustivel.setModel(new DefaultComboBoxModel(new String[] {"Óleo Díesel", "Gasolina Comum", "Gasolina Aditivada", "Etanol"}));
+		comboBoxCombustivel.setModel(new DefaultComboBoxModel(Combobox.values()));
 		panel_11.add(comboBoxCombustivel);
 		
 		JLabel lblNewLabel_12 = new JLabel("Quantidade Litros");
 		lblNewLabel_12.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_11.add(lblNewLabel_12);
 		
+		JLabel lblTotalComb = new JLabel("-");
+		lblTotalComb.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		textQuantiLitros = new JTextField();
 		textQuantiLitros.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
-				
+				int posicao=comboBoxCombustivel.getSelectedIndex();
+				float qLitros=Float.valueOf(textQuantiLitros.getText());
+				if(posicao==0)
+				{
+					lblTotalComb.setText(c.Diesel(qLitros));
+				}
+				else if(posicao==1)
+				{
+					lblTotalComb.setText(c.Comum(qLitros));
+				}
+				else if(posicao==2)
+				{
+					lblTotalComb.setText(c.Aditiv(qLitros));
+				}
+				else if(posicao==3)
+				{
+					lblTotalComb.setText(c.Etanol(qLitros));
+				}
 			}
 		});
 		panel_11.add(textQuantiLitros);
@@ -316,8 +337,7 @@ public class Tela1 extends JFrame {
 		lblNewLabel_13.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_11.add(lblNewLabel_13);
 		
-		JLabel lblTotalComb = new JLabel("-");
-		lblTotalComb.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		panel_11.add(lblTotalComb);
 		
 		JPanel panel_12 = new JPanel();
@@ -370,9 +390,9 @@ public class Tela1 extends JFrame {
 		JLabel lblNewLabel_16 = new JLabel("Total a pagar:");
 		panel_13.add(lblNewLabel_16);
 		
-		textTotal = new JTextField();
-		panel_13.add(textTotal);
-		textTotal.setColumns(10);
+		JLabel lblTotal = new JLabel("-");
+		lblTotal.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_13.add(lblTotal);
 		
 		JPanel panel_18 = new JPanel();
 		contentPane.add(panel_18, "cell 0 3,grow");
@@ -381,14 +401,27 @@ public class Tela1 extends JFrame {
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				float vDiesel=Float.valueOf(textDieselPreco.getText());
-				float vComum=Float.valueOf(textComumPreco.getText());
-				float vAditiv=Float.valueOf(textAditivPreco.getText());
-				float vEtanol=Float.valueOf(textEtanolPreco.getText());
+				Integer dias=Integer.valueOf(textDias.getSelectedText());
 				
+				if(rdbtnVista.isSelected())
+				{
+					String total=c.TotalpagarVista();
+					lblTotal.setText(total);
+				}
+				else if(rdbtnPrazo.isSelected())
+				{
+					if(dias<30)
+					{
+					String total= c.totalPagarPrazo();
+					lblTotal.setText(total);
+					}
+					else if(dias>=30)
+					{
+						String total= c.totalPagarPrazo30();
+						lblTotal.setText(total);
+					}
+				}
 				
-				int posicao=comboBoxCombustivel.getSelectedIndex();
-				float qLitros= Float.valueOf(textQuantiLitros.getText());
 			
 			}
 		});
@@ -407,7 +440,7 @@ public class Tela1 extends JFrame {
 				text1LQuanti.setText(null);
 				textQuantiLitros.setText(null);
 				textDias.setText(null);
-				textTotal.setText(null);
+				lblTotal.setText(null);
 				lblTotalComb.setText("-");
 				lblValor1L.setText("-");
 				lblValorP500mlOleo.setText("-");
