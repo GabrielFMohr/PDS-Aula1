@@ -247,8 +247,8 @@ public class Tela1 extends JFrame {
 			public void focusLost(FocusEvent e) {
 				
 				c.q500ml=Float.valueOf(text500mlquanti.getText());
-				lblValorP500mlOleo.setText(c.c500ml());		
-				lbl500mlTotalOleo.setText(c.totalOleo());
+				lblValorP500mlOleo.setText("R$ "+c.c500ml());		
+				lbl500mlTotalOleo.setText("R$ "+c.totalOleo());
 			}
 		});
 		panel_8.add(text500mlquanti);
@@ -272,8 +272,8 @@ public class Tela1 extends JFrame {
 			@Override
 			public void focusLost(FocusEvent e) {
 				c.q1L=Float.valueOf(text1LQuanti.getText());
-				lblValor1L.setText(c.c1L());
-				lbl500mlTotalOleo.setText(c.totalOleo());
+				lblValor1L.setText("R$ "+c.c1L());
+				lbl500mlTotalOleo.setText("R$ "+c.totalOleo());
 			}
 		});
 		panel_8.add(text1LQuanti);
@@ -314,19 +314,19 @@ public class Tela1 extends JFrame {
 				float qLitros=Float.valueOf(textQuantiLitros.getText());
 				if(posicao==0)
 				{
-					lblTotalComb.setText(c.Diesel(qLitros));
+					lblTotalComb.setText("R$ "+c.Diesel(qLitros));
 				}
 				else if(posicao==1)
 				{
-					lblTotalComb.setText(c.Comum(qLitros));
+					lblTotalComb.setText("R$ "+c.Comum(qLitros));
 				}
 				else if(posicao==2)
 				{
-					lblTotalComb.setText(c.Aditiv(qLitros));
+					lblTotalComb.setText("R$ "+c.Aditiv(qLitros));
 				}
 				else if(posicao==3)
 				{
-					lblTotalComb.setText(c.Etanol(qLitros));
+					lblTotalComb.setText("R$ "+c.Etanol(qLitros));
 				}
 			}
 		});
@@ -401,24 +401,25 @@ public class Tela1 extends JFrame {
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Integer dias=Integer.valueOf(textDias.getSelectedText());
+				
 				
 				if(rdbtnVista.isSelected())
 				{
 					String total=c.TotalpagarVista();
-					lblTotal.setText(total);
+					lblTotal.setText("R$ "+total);
 				}
 				else if(rdbtnPrazo.isSelected())
 				{
-					if(dias<30)
+					Integer dias=Integer.valueOf(textDias.getText());
+					if(dias<=30)
 					{
 					String total= c.totalPagarPrazo();
-					lblTotal.setText(total);
+					lblTotal.setText("R$ "+total);
 					}
-					else if(dias>=30)
+					else if(dias>30)
 					{
 						String total= c.totalPagarPrazo30();
-						lblTotal.setText(total);
+						lblTotal.setText("R$ "+total);
 					}
 				}
 				
