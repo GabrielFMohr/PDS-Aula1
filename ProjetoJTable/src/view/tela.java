@@ -41,6 +41,7 @@ public class tela extends JFrame {
 	ArrayList<pessoas> lista = new ArrayList<pessoas>();
 	private JButton btnNewButton_2;
 	private JButton btnNewButton_3;
+	private JButton btnNewButton_4;
 
 	/**
 	 * Launch the application.
@@ -68,7 +69,7 @@ public class tela extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new MigLayout("", "[170px][140px][107px,center]", "[10px,bottom][20px][10px][10px][20px][10px][23px][10px][10px][146px][30px]"));
+		contentPane.setLayout(new MigLayout("", "[170px][140px][107px,center]", "[10px,bottom][20px][10px][10px][20px][10px][23px][10px][10px][146px][10px][30px]"));
 
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, "cell 0 9 3 1,grow");
@@ -140,10 +141,12 @@ public class tela extends JFrame {
 				for (pessoas pessoa : lista) {
 					if (pessoa.getCpf() == cpf) {
 						lista.remove(pessoa);
+						atualizarJTableModel();
+						limparCampos();
 					}
 				}
 
-				atualizarJTableModel();
+				
 			}
 		});
 		contentPane.add(btnNewButton_1, "cell 1 6,alignx center,aligny top");
@@ -221,7 +224,20 @@ public class tela extends JFrame {
 				setVisible(false);
 			}
 		});
-		contentPane.add(btnNewButton_3, "cell 1 10,alignx center");
+		contentPane.add(btnNewButton_3, "cell 0 11,alignx center");
+		
+		btnNewButton_4 = new JButton("Limpar");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtNome.setText(null);
+				txtCPF.setText(null);
+				txtAltura.setText(null);
+				txtTelefone.setText(null);
+				txtIdade.setText(null);
+				txtPeso.setText(null);
+			}
+		});
+		contentPane.add(btnNewButton_4, "cell 2 11");
 	}
 
 	public void atualizarJTableModel() {
