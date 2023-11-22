@@ -1,15 +1,15 @@
 package model;
 
 public class pessoas {
-	
+
 	private String nome;
 	private int cpf;
 	private int telefone;
 	private int idade;
 	private float peso;
 	private float altura;
-	
-	
+
+
 	public int getTelefone() {
 		return telefone;
 	}
@@ -46,7 +46,7 @@ public class pessoas {
 	public void setCpf(int cpf) {
 		this.cpf = cpf;
 	}
-	
-	
+
+
 
 }

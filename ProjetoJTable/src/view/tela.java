@@ -24,6 +24,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 public class tela extends JFrame {
 
@@ -64,8 +65,9 @@ public class tela extends JFrame {
 	 */
 	public tela() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300, 300, 492, 403);
+		setBounds(300, 300, 492, 385);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(251, 250, 219));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -81,7 +83,7 @@ public class tela extends JFrame {
 
 				int linha = table.getSelectedRow();
 				pessoas pessoaSelecionada = lista.get(linha);
-				
+
 			}
 		});
 		atualizarJTableModel();
@@ -90,14 +92,14 @@ public class tela extends JFrame {
 		labelNome = new JLabel("Nome:");
 		labelNome.setVerticalAlignment(SwingConstants.BOTTOM);
 		labelNome.setHorizontalAlignment(SwingConstants.LEFT);
-		contentPane.add(labelNome, "cell 0 0,alignx left,aligny top");
+		contentPane.add(labelNome, "cell 0 0,alignx center,aligny top");
 
 		txtNome = new JTextField();
 		contentPane.add(txtNome, "cell 0 1,growx,aligny top");
 		txtNome.setColumns(10);
 
 		lblNewLabel = new JLabel("CPF:");
-		contentPane.add(lblNewLabel, "cell 1 0,alignx left,aligny top");
+		contentPane.add(lblNewLabel, "cell 1 0,alignx center,aligny top");
 
 		txtCPF = new JTextField();
 		contentPane.add(txtCPF, "cell 1 1,growx,aligny top");
@@ -107,7 +109,7 @@ public class tela extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pessoas p = new pessoas();
-				
+
 				String nome = txtNome.getText();
 				Integer cpf = Integer.valueOf(txtCPF.getText());
 				Integer telefone = Integer.valueOf(txtTelefone.getText());
@@ -146,7 +148,7 @@ public class tela extends JFrame {
 					}
 				}
 
-				
+
 			}
 		});
 		contentPane.add(btnNewButton_1, "cell 1 6,alignx center,aligny top");
@@ -155,20 +157,20 @@ public class tela extends JFrame {
 		btnNewButton_2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
+
+
 				int linhaparaexc = table.getSelectedRow();
-				
+
 				int cpf = (int) table.getValueAt(linhaparaexc, 1);
-				
+
 				String nome = txtNome.getText();
 				Integer cpf1 = Integer.valueOf(txtCPF.getText());
 				Integer telefone = Integer.valueOf(txtTelefone.getText());
 				Integer idade = Integer.valueOf(txtIdade.getText());
 				Float peso = Float.valueOf(txtPeso.getText());
 				Float altura = Float.valueOf(txtAltura.getText());
-				
-				
+
+
 				for (pessoas pessoa : lista) {
 					if (pessoa.getCpf() == cpf) {
 
@@ -181,7 +183,7 @@ public class tela extends JFrame {
 
 						atualizarJTableModel();
 						limparCampos();
-						
+
 					}
 				}
 
@@ -207,17 +209,17 @@ public class tela extends JFrame {
 		txtPeso.setColumns(10);
 
 		JLabel lblNewLabel_1 = new JLabel("Telefone:");
-		contentPane.add(lblNewLabel_1, "cell 0 3,alignx left,aligny top");
+		contentPane.add(lblNewLabel_1, "cell 0 3,alignx center,aligny top");
 
 		JLabel lblNewLabel_2 = new JLabel("Idade:");
-		contentPane.add(lblNewLabel_2, "cell 1 3,alignx left,aligny top");
+		contentPane.add(lblNewLabel_2, "cell 1 3,alignx center,aligny top");
 
 		JLabel lblNewLabel_3 = new JLabel("Peso:");
-		contentPane.add(lblNewLabel_3, "cell 2 3,alignx left,aligny top");
+		contentPane.add(lblNewLabel_3, "cell 2 3,alignx center,aligny top");
 
 		JLabel lblNewLabel_4 = new JLabel("Altura:");
-		contentPane.add(lblNewLabel_4, "cell 2 0,alignx left,aligny top");
-		
+		contentPane.add(lblNewLabel_4, "cell 2 0,alignx center,aligny top");
+
 		btnNewButton_3 = new JButton("Fechar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -225,7 +227,7 @@ public class tela extends JFrame {
 			}
 		});
 		contentPane.add(btnNewButton_3, "cell 0 11,alignx center");
-		
+
 		btnNewButton_4 = new JButton("Limpar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

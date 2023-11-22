@@ -7,11 +7,11 @@ public class tabelaPessoas extends AbstractTableModel{
 
 	private ArrayList<pessoas> lista;
 	private String[] colunas ={"Nome", "CPF ", "Telefone","Idade","Peso","Altura" };
-	
+
 	public tabelaPessoas(ArrayList<pessoas> lista) {
 		this.lista=lista;
 	}
-	
+
 	@Override
 	public int getRowCount() {
 		return this.lista.size();
@@ -38,10 +38,10 @@ public class tabelaPessoas extends AbstractTableModel{
 		} else if(columnIndex == 5) {
 			return p.getAltura();
 		}
-		
+
 		return null;
 	}
-	
+
 	@Override
 	public String getColumnName(int column) {
 		return colunas[column];
