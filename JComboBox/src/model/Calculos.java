@@ -13,6 +13,7 @@ public class Calculos {
 	public String Comum(float qL)
 	{
 		String vTotal=String.valueOf(vComum*qL);
+		tComb=Float.valueOf(vTotal);
 		return vTotal;
 	}
 	public String Aditiv(Float qL)
